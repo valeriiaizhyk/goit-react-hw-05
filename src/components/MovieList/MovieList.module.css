@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  row-gap: 45px;
+  column-gap: 60px;
+  list-style: none;
+}
+
+.title {
+  color: #afafb8;
+  text-align: center;
+  margin-bottom: 8px;
+}

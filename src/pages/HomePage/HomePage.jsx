@@ -4,6 +4,7 @@ import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import MovieList from "../../components/MovieList/MovieList";
 import fetchData from "../../api-request";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -29,7 +30,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Popular movies</h1>
+      <h1 className={css.title}>Popular movies</h1>
       {loading && <Loader />}
 
       {error && (

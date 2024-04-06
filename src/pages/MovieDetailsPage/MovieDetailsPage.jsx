@@ -11,6 +11,8 @@ import {
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import fetchData from "../../api-request";
+import css from "./MovieDetailsPage.module.css";
+import clsx from "clsx";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -41,8 +43,11 @@ export default function MovieDetailsPage() {
     "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
 
   return (
-    <div>
-      <Link to={backLinkRef.current}> Go back</Link>
+    <div className={css.wrap}>
+      <Link to={backLinkRef.current} className={css.link}>
+        {" "}
+        Go back
+      </Link>
 
       {loading && <Loader />}
 
@@ -54,6 +59,7 @@ export default function MovieDetailsPage() {
 
       <div>
         <img
+          className={css.image}
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -83,9 +89,23 @@ export default function MovieDetailsPage() {
           )}
 
           {!loading && (
-            <nav>
-              <NavLink to="cast">Cast</NavLink>
-              <NavLink to="reviews">Reviews</NavLink>
+            <nav className={css.navpages}>
+              <NavLink
+                className={({ isActive }) => {
+                  return clsx(css.navLink, isActive && css.isActive);
+                }}
+                to="cast"
+              >
+                Cast
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => {
+                  return clsx(css.navLink, isActive && css.isActive);
+                }}
+                to="reviews"
+              >
+                Reviews
+              </NavLink>
             </nav>
           )}
         </div>

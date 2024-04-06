@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import fetchData from "../../api-request";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
   const { movieId } = useParams();
@@ -66,7 +67,7 @@ export default function MovieCast() {
           )}
         </div>
       ) : (
-        <p>The cast has not yet been written</p>
+        <p className={css.cast}>The cast has not yet been written</p>
       )}
     </>
   );

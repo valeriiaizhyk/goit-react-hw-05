@@ -1,0 +1,40 @@
+.header {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 15px;
+  background-color: #1b1b1bd5;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.link {
+  padding: 4px 16px;
+  border-radius: 15px;
+
+  font-size: 22px;
+  color: #535bf2;
+  transition: border 250ms ease-in, background-color 250ms ease-in,
+    color 250ms ease-in;
+}
+.isActive {
+  color: #535bf2;
+  background-color: #4f4f4f;
+}
+
+.link:hover,
+.link:focus {
+  color: #1dd1d1;
+}
+
+.isActive:hover,
+.isActive:focus {
+  color: #41daa7;
+}

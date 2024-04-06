@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import fetchData from "../../api-request";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import css from "./MovieReviews.module.css";
 
 export default function MovieReviews() {
   const { movieId } = useParams();
@@ -72,7 +73,9 @@ export default function MovieReviews() {
           )}
         </div>
       ) : (
-        <p>Users have not yet written a reviews about this movie</p>
+        <p className={css.reviews}>
+          Users have not yet written a reviews about this movie
+        </p>
       )}
     </>
   );
