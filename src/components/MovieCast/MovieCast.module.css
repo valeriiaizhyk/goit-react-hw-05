@@ -1,3 +1,45 @@
+.container {
+  padding: 40px 0;
+  background-color: #e4f6f8;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+
+  width: 217px;
+  height: 375px;
+  padding: 8px;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.image {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.text {
+  color: #252525;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .cast {
   text-align: center;
   font-size: 24px;

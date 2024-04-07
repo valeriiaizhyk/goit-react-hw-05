@@ -16,7 +16,7 @@ export default function HomePage() {
       try {
         setLoading(true);
         setError(false);
-        const data = await fetchData("/trending/movie/day");
+        const data = await fetchData(`/trending/movie/day`);
         setMovies(data.results);
       } catch (error) {
         toast.error("Error! Please reload the page.");

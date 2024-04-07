@@ -1,3 +1,53 @@
+.container {
+  background-color: #c3d1ce;
+  padding: 10px 30px;
+  border-radius: 15px;
+  margin-top: 26px;
+}
+
+.image {
+  width: 68px;
+  height: 70px;
+  padding: 3px;
+  border: 1px solid darkgray;
+  border-radius: 50%;
+}
+
+.item {
+  display: flex;
+  gap: 14px;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid #808a88;
+  margin: 20px 0;
+
+  text-align: justify;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 815px;
+  color: #4f4f4f;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 12px;
+}
+
+.name {
+  color: #4f4f4f;
+  font-size: 14px;
+}
+
+.comment {
+  font-size: 16px;
+}
+
 .reviews {
   text-align: center;
   font-size: 24px;

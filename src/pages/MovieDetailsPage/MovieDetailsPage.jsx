@@ -27,7 +27,7 @@ export default function MovieDetailsPage() {
       try {
         setLoading(true);
         setError(false);
-        const data = await fetchData("/movie/${movieId}", movieId);
+        const data = await fetchData(`/movie/${movieId}`, movieId);
         setMovie(data);
       } catch (error) {
         toast.error("Error! Please reload the page.");
@@ -57,7 +57,7 @@ export default function MovieDetailsPage() {
         </ErrorMessage>
       )}
 
-      <div>
+      <div className={css.container}>
         <img
           className={css.image}
           src={
@@ -68,23 +68,24 @@ export default function MovieDetailsPage() {
           alt={`${movie.title} poster`}
         />
         <div>
-          <h1>{movie.title}</h1>
-          {movie.tagline && <p>{`"${movie.tagline}"`}</p>}
+          <h1 className={css.title}>{movie.title}</h1>
+          {movie.tagline && <p className={css.text}>{`${movie.tagline}`}</p>}
           {movie.overview && (
-            <p>
-              <span>Overview:</span> {movie.overview}
+            <p className={css.text}>
+              <span className={css.span}>Overview:</span> {movie.overview}
             </p>
           )}
           {movie.genres && movie.genres.length > 0 && (
-            <p>
-              <span>Genres:</span>{" "}
+            <p className={css.text}>
+              <span className={css.span}>Genres:</span>{" "}
               {movie.genres.map((genre) => genre.name).join(", ")}
             </p>
           )}
 
           {movie.vote_average > 0 && (
-            <p>
-              <span>Average rating:</span> {Math.floor(movie.vote_average)} / 10
+            <p className={css.text}>
+              <span className={css.span}>Average rating:</span>{" "}
+              {Math.floor(movie.vote_average)} / 10
             </p>
           )}
 

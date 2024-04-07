@@ -22,11 +22,32 @@
     color 250ms ease-in;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 18px;
+}
+
 .image {
   width: 320px;
   padding: 8px;
   border: 1px solid #252525;
   border-radius: 15px;
+}
+
+.title {
+  color: #252525;
+  text-align: center;
+}
+
+.text {
+  color: #252525;
+}
+
+.span {
+  font-weight: 800;
 }
 
 .navpages {

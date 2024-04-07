@@ -35,7 +35,7 @@ export default function MovieReviews() {
   return (
     <>
       {reviews.length > 0 ? (
-        <div>
+        <div className={css.container}>
           {loading && <Loader />}
 
           {error && (
@@ -44,7 +44,7 @@ export default function MovieReviews() {
             </ErrorMessage>
           )}
 
-          {loading && (
+          {!loading && (
             <ul>
               {reviews.map(
                 ({
@@ -52,19 +52,22 @@ export default function MovieReviews() {
                   content,
                   author_details: { name, username, avatar_path, rating },
                 }) => (
-                  <li key={id}>
+                  <li key={id} className={css.item}>
                     <img
+                      className={css.image}
                       src={
                         avatar_path
                           ? `https://image.tmdb.org/t/p/w500${avatar_path}`
                           : defaultImg
                       }
-                      alt={"${username} avatar"}
+                      alt={`${username} avatar`}
                     />
-                    <div>
-                      <div>{username && <p>{name}</p>}</div>
+                    <div className={css.description}>
+                      <div className={css.wrapper}>
+                        {username && <p className={css.name}>{name}</p>}
+                      </div>
                       {rating && <p>{rating}/ 10 </p>}
-                      <p>{content}</p>
+                      <p className={css.comment}>{content}</p>
                     </div>
                   </li>
                 )

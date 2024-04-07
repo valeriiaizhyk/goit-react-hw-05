@@ -23,7 +23,7 @@ export default function MoviesPage() {
         setLoading(true);
         setError(false);
         setMovies([]);
-        const data = await fetchData("/search/movie", queryFilter);
+        const data = await fetchData(`/search/movie`, queryFilter);
 
         if (data.results.length === 0 && queryFilter !== "") {
           toast.error("No results!");

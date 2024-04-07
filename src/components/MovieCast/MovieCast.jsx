@@ -20,7 +20,7 @@ export default function MovieCast() {
       try {
         setLoading(true);
         setError(false);
-        const data = await fetchData("/movie/${movieId}/credits", movieId);
+        const data = await fetchData(`/movie/${movieId}/credits`, movieId);
         setCast(data.cast);
       } catch (error) {
         setError(true);
@@ -46,10 +46,11 @@ export default function MovieCast() {
             </ErrorMessage>
           )}
           {!loading && (
-            <ul>
+            <ul className={css.list}>
               {cast.map(({ id, name, character, profile_path }) => (
-                <li key={id}>
+                <li key={id} className={css.item}>
                   <img
+                    className={css.image}
                     src={
                       profile_path
                         ? `https://image.tmdb.org/t/p/w500${profile_path}`
@@ -58,8 +59,8 @@ export default function MovieCast() {
                     alt={"${name} photo"}
                   />
                   <div>
-                    <p>{name}</p>
-                    <p>{character}</p>
+                    <p className={css.text}>{name}</p>
+                    <p className={css.text}>{character}</p>
                   </div>
                 </li>
               ))}
