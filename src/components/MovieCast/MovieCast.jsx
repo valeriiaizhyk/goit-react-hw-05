@@ -36,39 +36,35 @@ export default function MovieCast() {
 
   return (
     <>
+      {loading && <Loader />}
+      {error && (
+        <ErrorMessage>
+          Something went wrong! Please reload the page!
+        </ErrorMessage>
+      )}
       {cast.length > 0 ? (
-        <div>
-          {loading && <Loader />}
-
-          {error && (
-            <ErrorMessage>
-              Something went wrong! Please reload the page!
-            </ErrorMessage>
-          )}
-          {!loading && (
-            <ul className={css.list}>
-              {cast.map(({ id, name, character, profile_path }) => (
-                <li key={id} className={css.item}>
-                  <img
-                    className={css.image}
-                    src={
-                      profile_path
-                        ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                        : defaultImg
-                    }
-                    alt={"${name} photo"}
-                  />
-                  <div>
-                    <p className={css.text}>{name}</p>
-                    <p className={css.text}>{character}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <ul className={css.list}>
+          {cast.map(({ id, name, character, profile_path }) => (
+            <li key={id} className={css.item}>
+              <img
+                className={css.image}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : defaultImg
+                }
+                alt={`${name} photo`}
+              />
+              <div>
+                <p className={css.text}>{name}</p>
+                <p className={css.text}>{character}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <p className={css.cast}>The cast has not yet been written</p>
+        !loading &&
+        !error && <p className={css.cast}>The cast has not yet been written</p>
       )}
     </>
   );
